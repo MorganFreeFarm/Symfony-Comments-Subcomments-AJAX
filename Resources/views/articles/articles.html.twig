@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% include 'home/header.html.twig' %}
+    <!-- Banner area -->
+    <section class="banner_area" data-stellar-background-ratio="0.5">
+        <h2>Our Blog</h2>
+        <ol class="breadcrumb">
+            <li><a href="index.html">Начало</a></li>
+            <li><a href="#" class="active">История</a></li>
+        </ol>
+    </section>
+    <!-- End Banner area -->
+
+    <!-- blog-2 area -->
+    <section class="blog_tow_area">
+        <div class="container">
+            <div class="row blog_tow_row">
+                {% for article in articles %}
+                    <div class="col-md-4 col-sm-6">
+                        <div class="renovation">
+                            <img src="images/blog/renovation/r-2.jpg" alt="">
+                            <div class="renovation_content">
+                                <a class="clipboard" href="#"><i class="fa fa-clipboard" aria-hidden="true"></i></a>
+                                <a class="title" href="{{ path('article', {'category':article.category.code, 'id':article.id}) }}">{{ article.title }}</a>
+                                <div class="date_comment">
+                                    <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>October 20, 2016</a>
+                                    <a href="#"><i class="fa fa-commenting-o" aria-hidden="true"></i>3</a>
+                                </div>
+                                <p>{{ article.content }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- End blog-2 area -->
+    {% include 'home/footer.html.twig' %}
+{% endblock %}
